@@ -31,5 +31,21 @@ return move
 var player = getMove(playerMoveNumber);
 var computer = getMove(computerMoveNumber);
 
-console.log(player);
-console.log(computer);
+console.log("player :"+player);
+console.log("computer :" + computer);
+function displayResult(p,c){
+    if(p==c){
+        printMessage("draw");
+    }else if (p == 1 && c ==2){
+        printMessage("you lose");
+    }else if (p== 3 && c == 1){
+        printMessage("you lose");
+    }else if (p== 2 && c == 3){
+        printMessage("you lose");
+    }
+    else{
+        printMessage("you win")
+    };
+
+};
+displayResult(playerMoveNumber, computerMoveNumber);
