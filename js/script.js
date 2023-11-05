@@ -8,39 +8,14 @@ function clearMessages(){
 	document.getElementById('messages').innerHTML = '';
 }
 
-var computerMoveNumber= Math.floor(Math.random()*3+1);
-
-console.log(computerMoveNumber);
-var playerMoveNumber = prompt("wybierz ruch: 1-k 2-p 3-n");
-
-
-
-function getMove(a){
-if(a==1){
-var move = "kamien" 
-return move
-}else if(a==2){
-    var move = "papier"
-    return move
-}else{
-    var move = "nożyce"
-    return move
-};
-};
-
-var player = getMove(playerMoveNumber);
-var computer = getMove(computerMoveNumber);
-
-console.log("player :"+player);
-console.log("computer :" + computer);
 function displayResult(p,c){
     if(p==c){
         printMessage("draw");
-    }else if (p == 1 && c ==2){
+    }else if (p == "kamien" && c =="papier"){
         printMessage("you lose");
-    }else if (p== 3 && c == 1){
+    }else if (p== "nożyce" && c == "kamien"){
         printMessage("you lose");
-    }else if (p== 2 && c == 3){
+    }else if (p== "papier" && c == "nożyce"){
         printMessage("you lose");
     }
     else{
@@ -48,4 +23,38 @@ function displayResult(p,c){
     };
 
 };
-displayResult(playerMoveNumber, computerMoveNumber);
+
+function getMove(a){
+    if(a==1){
+    var move = "kamien" 
+    return move
+    }else if(a==2){
+        var move = "papier"
+        return move
+    }else{
+        var move = "nożyce"
+        return move
+    };
+    };
+
+function playerMove(button){
+    var computerMoveNumber= Math.floor(Math.random()*3+1);
+    var computer = getMove(computerMoveNumber);
+    console.log(computerMoveNumber);
+    clearMessages();
+    var player = button.innerHTML;
+    console.log(player);
+
+
+    displayResult(player, computer);
+    
+}
+
+
+
+
+
+
+
+
+
