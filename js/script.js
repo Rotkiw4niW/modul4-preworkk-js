@@ -22,7 +22,7 @@ function displayResult(p,c){
         printMessage("you win")
     };
 
-};
+}
 
 function getMove(a){
     if(a==1){
@@ -35,21 +35,26 @@ function getMove(a){
         var move = "nożyce"
         return move
     };
-    };
+    }
 
-function playerMove(button){
+function playerMove(){
     var computerMoveNumber= Math.floor(Math.random()*3+1);
     var computer = getMove(computerMoveNumber);
     console.log(computerMoveNumber);
     clearMessages();
-    var player = button.innerHTML;
+    var player = this.innerHTML;
     console.log(player);
 
 
     displayResult(player, computer);
     
 }
-
+// napisać wersję z addEventListener !!!
+var buttons = document.querySelectorAll(".button");
+console.log(buttons);
+buttons.forEach(element => 
+    element.addEventListener("click", playerMove) 
+);
 
 
 
